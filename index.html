@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommFest Express - Student Runner & Kitchen App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gray-800 border-b border-gray-700 shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-person-running text-orange-500 text-2xl"></i>
+                <h1 class="text-xl font-bold">CommFest Runner <span class="text-xs bg-orange-600 text-white px-2 py-0.5 rounded-full font-semibold">Kitchen Dashboard</span></h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleStockModal()" class="bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 border border-gray-600 transition">
+                    <i class="fa-solid fa-sliders text-orange-400"></i> Menu Stock Manager
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="max-w-6xl mx-auto px-4 py-6 flex-grow w-full">
+        <!-- Live Metrics Bar -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            <div class="bg-gray-800 border border-gray-700 p-5 rounded-2xl shadow">
+                <p class="text-gray-400 text-sm font-medium">Pending Orders</p>
+                <h3 id="statPending" class="text-3xl font-extrabold text-orange-400 mt-1">0</h3>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 p-5 rounded-2xl shadow">
+                <p class="text-gray-400 text-sm font-medium">Total Orders Received</p>
+                <h3 id="statTotal" class="text-3xl font-extrabold text-blue-400 mt-1">0</h3>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 p-5 rounded-2xl shadow">
+                <p class="text-gray-400 text-sm font-medium">Fest Revenue</p>
+                <h3 id="statRevenue" class="text-3xl font-extrabold text-green-400 mt-1">₹0</h3>
+            </div>
+        </div>
+
+        <!-- Order Feed -->
+        <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><i class="fa-solid fa-bell text-orange-500"></i> Live Staffroom Order Queue</h2>
+        <div id="kitchenOrdersList" class="space-y-4">
+            <!-- Dynamic order feeds -->
+        </div>
+    </main>
+
+    <!-- Stock Modal -->
+    <div id="stockModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-800 border border-gray-700 w-full max-w-lg rounded-2xl p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-700 pb-3">
+                <h3 class="text-lg font-bold">Menu Stock Availability</h3>
+                <button onclick="toggleStockModal()" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            <div id="stockList" class="space-y-3 max-h-96 overflow-y-auto">
+                <!-- Stock item list -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
